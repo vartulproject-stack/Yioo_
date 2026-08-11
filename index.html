@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise For You ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c20 0%, #1a102f 50%, #2a0826 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(20, 20, 35, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 59, 111, 0.2);
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .layer {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out forwards;
+        }
+
+        .layer.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            color: #ff4d8d;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 77, 141, 0.3);
+        }
+
+        p {
+            color: #cccccc;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff3b6f, #ff6b9d);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 59, 111, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 59, 111, 0.6);
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: rgba(255, 77, 141, 0.15);
+            color: #ff6b9d;
+            border: 1px solid rgba(255, 107, 157, 0.3);
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .gift-box {
+            font-size: 80px;
+            margin: 20px 0;
+            animation: bounce 1.5s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cards-grid {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 14px;
+            border-radius: 10px;
+            border-left: 4px solid #ff4d8d;
+            text-align: left;
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        .promise-box {
+            background: rgba(255, 77, 141, 0.08);
+            border: 1px dashed rgba(255, 107, 157, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .promise-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-btn-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            position: relative;
+            min-height: 50px;
+        }
+
+        .no-btn {
+            background: #444;
+            position: absolute;
+            right: 20px;
+        }
+
+        .letter-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            padding: 18px;
+            border-radius: 12px;
+            text-align: left;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+
+        .heart-icon {
+            color: #ff4d8d;
+            font-size: 50px;
+            animation: pulse 1s infinite;
+        }
+
+        #youtube-player {
+            display: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hidden YouTube Player -->
+<div id="youtube-player"></div>
+
+<div class="container">
+
+    <!-- LAYER 1 -->
+    <div class="layer active" id="layer1">
+        <span class="step-badge">Layer 1 of 5</span>
+        <h1>A Special Gift For You ❤️</h1>
+        <p>Aapke liye ek chhota sa surprise hai... Kya aap isko kholna chahengi?</p>
+        <div class="gift-box" onclick="startExperience(2)">🎁</div>
+        <button class="btn" onclick="startExperience(2)">Tap to Open</button>
+    </div>
+
+    <!-- LAYER 2 -->
+    <div class="layer" id="layer2">
+        <span class="step-badge">Layer 2 of 5</span>
+        <h2>Why You Are Special ✨</h2>
+        <p>Aise bahut se reasons hain, par yeh 3 sabse khaas hain:</p>
+        <div class="cards-grid">
+            <div class="card-item">💖 <b>Aapki Smile:</b> Humari har pareshani door kar deti hai.</div>
+            <div class="card-item">🌸 <b>Aapka Nature:</b> Kitna bhi gussa ho, aap sab handle kar leti hain.</div>
+            <div class="card-item">✨ <b>Aapka Sath:</b> Aapke bina humko sab adhura lagta hai.</div>
+        </div>
+        <button class="btn" onclick="nextLayer(3)">Next Surprise ➔</button>
+    </div>
+
+    <!-- LAYER 3 -->
+    <div class="layer" id="layer3">
+        <span class="step-badge">Layer 3 of 5</span>
+        <h2>Humara Wada Aap Se 🤙❤️</h2>
+        <div class="promise-box">
+            <div class="promise-icon">🤝</div>
+            <p style="color: #ff4d8d; font-weight: bold; font-size: 17px; margin-bottom: 10px;">
+                "Humara Ek Saccha Wada"
+            </p>
+            <p style="color: #dddddd; font-size: 14px; margin-bottom: 0;">
+                Chahe situation kitni bhi mushkil ho, hum hamesha aapka sath denge aur aapka haath kabhi nahi chhodenge.
+            </p>
+        </div>
+        <button class="btn" onclick="nextLayer(4)">Unlock Next Layer ➔</button>
+    </div>
+
+    <!-- LAYER 4 -->
+    <div class="layer" id="layer4">
+        <span class="step-badge">Layer 4 of 5</span>
+        <h2>Ek Chhota Sa Test 😉</h2>
+        <p>Sach bataiye, aap humse kitna pyar karti hain?</p>
+        <div class="quiz-btn-container">
+            <button class="btn" onclick="nextLayer(5)">Bahut Zyada! ❤️</button>
+            <button class="btn no-btn" id="noBtn" onmouseover="moveButton()">Thoda Sa 😜</button>
+        </div>
+    </div>
+
+    <!-- LAYER 5 -->
+    <div class="layer" id="layer5">
+        <span class="step-badge">Final Layer 5</span>
+        <div class="heart-icon">💖</div>
+        <h2>You Are My Everything!</h2>
+        <div class="letter-box">
+            <p>"Aap humari life ka sabse haseen hissa hain. Thank you humari life me aane ke liye aur isko itna khubsurat banane ke liye. Love you forever!"</p>
+        </div>
+        <button class="btn" onclick="restart()">Replay Experience 🔄</button>
+    </div>
+
+</div>
+
+<!-- YouTube API Script -->
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    let player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('youtube-player', {
+            height: '0',
+            width: '0',
+            videoId: 'qL-F881aALc',
+            playerVars: {
+                'autoplay': 0,
+                'controls': 0,
+                'loop': 1,
+                'playlist': 'qL-F881aALc'
+            }
+        });
+    }
+
+    function startExperience(layerNumber) {
+        if (player && player.playVideo) {
+            player.seekTo(0);
+            player.playVideo();
+        }
+        nextLayer(layerNumber);
+    }
+
+    function nextLayer(layerNumber) {
+        document.querySelectorAll('.layer').forEach(layer => {
+            layer.classList.remove('active');
+        });
+        document.getElementById('layer' + layerNumber).classList.add('active');
+    }
+
+    function moveButton() {
+        const btn = document.getElementById('noBtn');
+        const x = Math.random() * (window.innerWidth < 400 ? 50 : 100) - 50;
+        const y = Math.random() * 60 - 30;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function restart() {
+        if (player && player.playVideo) {
+            player.seekTo(0); // Song reset to beginning
+            player.playVideo(); // Force replay
+        }
+        nextLayer(1);
+    }
+</script>
+
+</body>
+</html>
+
